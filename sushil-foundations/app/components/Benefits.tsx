@@ -4,44 +4,50 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  CheckCircle,
-  TrendingUp,
-  Award,
-  Users,
-  Heart,
-  Target,
+  Shield,
+  Dumbbell,
+  Brain,
+  Activity,
+  Sparkles,
+  ShieldAlert,
 } from 'lucide-react';
 
 const benefits = [
   {
-    icon: CheckCircle,
-    title: 'Proven Impact',
-    description: 'Demonstrated results in community development and individual growth',
+    icon: Shield,
+    title: 'Immune System',
+    description: 'The immune system keeps a record of every microbe it has ever defeated, in types of white blood cells (B- and T-lymphocytes) known as memory cells. This means it can recognise and destroy the microbe quickly if it enters the body again, before it can multiply and make you feel sick.',
+    color: 'from-amber-500 to-yellow-500',
   },
   {
-    icon: TrendingUp,
-    title: 'Sustainable Growth',
-    description: 'Long-term programs that create lasting change and self-sufficiency',
+    icon: Dumbbell,
+    title: 'Physical Strength',
+    description: 'Increases Physical strength and growth of the baby. Physical strength is the measure of a human\'s exertion of force on physical objects. Increasing physical strength is the goal of strength training.',
+    color: 'from-amber-400 to-amber-500',
   },
   {
-    icon: Award,
-    title: 'Quality Programs',
-    description: 'Expertly designed initiatives backed by research and best practices',
+    icon: Brain,
+    title: 'Analysis',
+    description: 'Grasping power, Analysis power and Recall memory becomes sharper. The definition of analysis is the process of breaking down a something into its parts to learn what they do and how they relate to one another.',
+    color: 'from-orange-500 to-amber-500',
   },
   {
-    icon: Users,
-    title: 'Community-Driven',
-    description: 'Programs tailored to local needs with active community participation',
+    icon: Activity,
+    title: 'Digestive',
+    description: 'Improves Digestive power. The digestive system is made up of organs that are important for digesting food and liquids. These include the mouth, pharynx (throat), esophagus, stomach, small intestine, large intestine, rectum, and anus.',
+    color: 'from-green-500 to-emerald-500',
   },
   {
-    icon: Heart,
-    title: 'Holistic Approach',
-    description: 'Addressing physical, mental, and social well-being comprehensively',
+    icon: Sparkles,
+    title: 'Skin',
+    description: 'Tones up Skin colour and Texture. The skin protects us from microbes and the elements, helps regulate body temperature, and permits the sensations of touch, heat, and cold.',
+    color: 'from-pink-500 to-rose-500',
   },
   {
-    icon: Target,
-    title: 'Focused Mission',
-    description: 'Clear objectives with measurable outcomes and transparent reporting',
+    icon: ShieldAlert,
+    title: 'Allergies',
+    description: 'Protects the baby from different kinds of Allergies. Allergy occurs when a person reacts to substances in the environment that are harmless to most people. These substances are known as allergens.',
+    color: 'from-red-500 to-pink-500',
   },
 ];
 
@@ -50,76 +56,43 @@ export default function Benefits() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="benefits" className="py-32 bg-white scroll-mt-20" ref={ref}>
+    <section id="benefits" className="py-07 bg-white scroll-mt-20" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Choose{' '}
+            Benefits of{' '}
             <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">
-              Us
+              Swarnabindu Prashana
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience the difference of working with a foundation committed to
-            excellence and impact
+            Discover the amazing health benefits of this traditional Ayurvedic practice for children
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069"
-                alt="Team collaboration"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {benefits.map((benefit, index) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl"
+              key={benefit.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+              className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border-2 border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
-              <p className="text-4xl font-bold text-amber-600 mb-1">98%</p>
-              <p className="text-sm text-gray-600">Success Rate</p>
+              <div className={`w-12 h-12 mb-4 rounded-full bg-gradient-to-r ${benefit.color} flex items-center justify-center`}>
+                <benefit.icon className="text-white" size={24} />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                {benefit.title}
+              </h3>
+              <p className="text-sm text-gray-600 text-justify">{benefit.description}</p>
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
-                className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border-2 border-gray-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300 hover:scale-105"
-              >
-                <div className="w-12 h-12 mb-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 flex items-center justify-center">
-                  <benefit.icon className="text-white" size={24} />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm text-gray-600">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+          ))}
         </div>
 
         <motion.div

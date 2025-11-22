@@ -62,13 +62,16 @@ export default function Hero() {
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.15 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${slides[currentSlide].bgImage}')` }}
         />
       </AnimatePresence>
+
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" />
 
       {/* Animated Background Blobs */}
       <div className="absolute inset-0">
@@ -141,7 +144,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
+              className="text-5xl md:text-7xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -153,7 +156,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}

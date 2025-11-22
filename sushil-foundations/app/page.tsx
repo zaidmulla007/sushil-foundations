@@ -1,8 +1,10 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import HowItWorks from './components/HowItWorks';
 import Services from './components/Services';
 import Benefits from './components/Benefits';
+import Gallery from './components/Gallery';
 import Donations from './components/Donations';
 import Careers from './components/Careers';
 import Contact from './components/Contact';
@@ -19,10 +21,16 @@ export default function Home() {
         <About />
       </div>
       <div className="relative">
+        <HowItWorks />
+      </div>
+      <div className="relative">
         <Services />
       </div>
       <div className="relative">
         <Benefits />
+      </div>
+      <div className="relative">
+        <Gallery />
       </div>
       <div className="relative">
         <Donations />

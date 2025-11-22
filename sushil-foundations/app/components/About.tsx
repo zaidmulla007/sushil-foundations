@@ -10,13 +10,13 @@ export default function About() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section id="about" className="py-32 bg-white scroll-mt-20" ref={ref}>
+    <section id="about" className="py-10 bg-white scroll-mt-20" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             About{' '}
@@ -50,20 +50,14 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">
-              Our Mission
-            </h3>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Sushil Foundation is dedicated to bringing social justice and
-              positive social changes to communities across Karnataka. We focus
-              on addressing poverty, unemployment, and illiteracy with cultural
-              sensitivity and compassion.
+            {/* <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              About US
+            </h3> */}
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed text-justify">
+              The population of Karnataka has access to numerous institutions and services that ensure a healthy and secure lifestyle. However, many people are unaware of these facilities and services. This lack of knowledge leaves a portion of the population in poor and unhappy conditions.
             </p>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Through our structured network of social workers spanning from
-              villages to districts, we ensure that our programs reach those who
-              need them most, creating lasting impact in every community we
-              serve.
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed text-justify">
+              Our aim is to assist these individuals by providing basic information about the availability of such helpful services, making a positive difference in their lives. This organization was created with the purpose of working with others to overcome obstacles such as poverty, unemployment, and illiteracy. We believe that together, we can advance the cause of humanity.
             </p>
             <div className="flex gap-4">
               <div className="flex-1 bg-amber-50 p-4 rounded-lg">
